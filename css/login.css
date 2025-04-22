@@ -74,3 +74,16 @@
   color: #aaa;
   cursor: auto;
 }
+
+.login__select {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  width: 20rem;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}

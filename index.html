@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -18,14 +18,19 @@
   <form class="login-form">
 
     <div class="login__header">
-      <img src="./images/logo.png" alt="logo">
-      <img src="./images/cerebro.jpg" alt="brain icon">
-      <h1>Memory Game</h1>
+      <h1>Jogo de Memória</h1>
     </div>
 
-    <input type="text" placeholder="Name" class="login__input">
-    <button type="submit" class="login__button">Play Rick and Morty</button>
-    <button type="submit" class="loginnaruto__button">Play Naruto</button>
+    <input type="text" placeholder="Name" class="login__input" required>
+
+    <select class="login__select" required>
+      <option value="" disabled selected>Selecione o modo...</option>
+      <option value="rickmorty">Rick and Morty</option>
+      <option value="naruto">Naruto</option>
+      
+    </select>
+
+    <button type="submit" class="login__button">Play</button>
 
   </form>
 
