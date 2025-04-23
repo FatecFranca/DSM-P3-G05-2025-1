@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/login.css">
 
+  <script src="./js/wave.js"></script>
   <script defer src="./js/login.js"></script>
   <link rel="shortcut icon" href="./images/brain.png" type="image/x-icon">
   <title>Memory Game | Login</title>
@@ -18,19 +19,19 @@
   <form class="login-form">
 
     <div class="login__header">
-      <h1>Jogo de Memória</h1>
+      <h1 id="wave">Jogo  de  Memória</h1>
     </div>
 
-    <input type="text" placeholder="Name" class="login__input" required>
+    <input type="text" placeholder="Nome" class="login__input" required>
 
     <select class="login__select" required>
-      <option value="" disabled selected>Selecione o modo...</option>
+      <option value="" disab led selected>Selecione o modo...</option>
       <option value="rickmorty">Rick and Morty</option>
       <option value="naruto">Naruto</option>
       
     </select>
 
-    <button type="submit" class="login__button">Play</button>
+    <button type="submit" class="login__button">Começar</button>
 
   </form>
 
