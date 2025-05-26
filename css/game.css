@@ -77,3 +77,19 @@ header {
 
   }
 }
+
+.back-button {
+  background-color: #9bffa9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.back-button:hover {
+  background-color: #00ff22c0;
+  transform: scale(1.07);
+}
