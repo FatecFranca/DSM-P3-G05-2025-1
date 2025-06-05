@@ -8,9 +8,14 @@ class GameControllerRicky {
     this.firstCard = null;
     this.secondCard = null;
     this.timerInterval = null;
+    this.gameStartTime = null;
+    this.gameCompleted = false;
+    this.playerName = localStorage.getItem('player') || 'Jogador';
+    this.difficulty = parseInt(localStorage.getItem('difficulty')) || 10;
   }
 
   startGame(difficulty) {
+    this.gameStartTime = Date.now();
     this.model.initializeGame(difficulty);
     this.view.renderGameBoard(this.model.getCards());
     this.view.updateScore(this.model.getScore());
@@ -50,6 +55,9 @@ class GameControllerRicky {
       this.firstCard.classList.add('disabled-card');
       this.secondCard.classList.add('disabled-card');
       this.model.updateScore(10);
+      
+      
+      this.checkEndGame();
     } else {
       this.firstCard.classList.remove('reveal-card');
       this.secondCard.classList.remove('reveal-card');
@@ -60,6 +68,57 @@ class GameControllerRicky {
 
     this.firstCard = null;
     this.secondCard = null;
+  }
+
+  checkEndGame() {
+    const totalPairs = this.difficulty;
+    const disabledCards = document.querySelectorAll('.disabled-card');
+
+    if (disabledCards.length === totalPairs * 2 && !this.gameCompleted) {
+      this.gameCompleted = true;
+      clearInterval(this.timerInterval);
+      
+      const finalTime = parseInt(this.view.timer.innerHTML);
+      const finalScore = this.model.getScore();
+      
+      
+      this.saveScore(this.playerName, finalScore, finalTime, 'rickandmorty', this.difficulty);
+      
+      setTimeout(() => {
+        alert(`🎉 Parabéns, ${this.playerName}! 
+Tempo: ${finalTime} segundos
+Pontuação: ${finalScore} pontos
+Tema: Rick and Morty`);
+      }, 500);
+    }
+  }
+
+  async saveScore(playerName, score, time, theme, difficulty) {
+    try {
+      const response = await fetch('/api/scores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          playerName,
+          score,
+          time,
+          theme,
+          difficulty
+        })
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        console.log('✅ Pontuação salva com sucesso:', data);
+      } else {
+        console.error('❌ Erro ao salvar pontuação:', data.error);
+      }
+    } catch (error) {
+      console.error('❌ Erro na requisição:', error);
+    }
   }
 }
 

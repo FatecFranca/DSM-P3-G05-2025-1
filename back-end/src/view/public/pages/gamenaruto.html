@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Naruto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/game.css">
+    <link rel="stylesheet" href="/css/gamenaruto.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <div class="player-info">👤 Jogador: <span id="playerName"></span></div>
+            <div class="timer">⏱️ Tempo: <span id="timer">00:00</span></div>
+            <div class="moves">🎯 Jogadas: <span id="moves">0</span></div>
+            <div class="score">🏆 Pontuação: 0</div>
+        </div>
+
+        <div class="game-grid" id="gameGrid">
+            
+        </div>
+
+        <div class="game-controls">
+            <a href="/" class="menu-button">🏠 MENU</a>
+            <button id="restartButton" class="restart-button">🔄 REINICIAR</button>
+        </div>
+    </div>
+
+    <script type="module" src="/js/gamenaruto.js"></script>
+</body>
+
+</html>

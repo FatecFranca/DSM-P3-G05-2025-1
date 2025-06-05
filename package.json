@@ -1,6 +1,37 @@
 {
   "type": "module",
   "dependencies": {
-    "express": "^5.1.0"
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1"
+  },
+  "name": "dsm-p3-g05-2025-1",
+  "version": "1.0.0",
+  "description": "Repositório do GRUPO 05 do Projeto Interdisciplinar do 3º semestre DSM 2025/1. Alunos: Claudio de Melo Junior, Diogo Guimarães Ramos, João Vitor Nicolau dos Santos, Thiago Davanzo Pereira.",
+  "main": "back-end/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node back-end/server.js",
+    "dev": "nodemon back-end/server.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FatecFranca/DSM-P3-G05-2025-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FatecFranca/DSM-P3-G05-2025-1/issues"
+  },
+  "homepage": "https://github.com/FatecFranca/DSM-P3-G05-2025-1#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.9.0"
   }
 }

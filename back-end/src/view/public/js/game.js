@@ -1,9 +1,9 @@
 const grid = document.querySelector('.grid');
 const spanPlayer = document.querySelector('.player');
 const timer = document.querySelector('.timer');
-const scoreDisplay = document.querySelector('.score'); // Adicionando a referência ao elemento de pontuação
+const scoreDisplay = document.querySelector('.score'); 
 
-let score = 0; // Inicializando a pontuação
+let score = 0; 
 let firstCard = null;
 let secondCard = null;
 let totalPairs = 0;
@@ -14,16 +14,16 @@ const updateScore = (points) => {
 };
 
 const characters = [
-  'beth',
-  'jerry',
-  'jessica',
-  'morty',
-  'pessoa-passaro',
-  'pickle-rick',
-  'rick',
-  'summer',
-  'meeseeks',
-  'scroopy',
+  'naruto',
+  'sasuke',
+  'sakura',
+  'kakashi',
+  'pain',
+  'madara',
+  'itachi',
+  'shikamaru',
+  'minato',
+  'orochimaru',
 ];
 
 const createElement = (tag, className) => {
@@ -32,12 +32,61 @@ const createElement = (tag, className) => {
   return element;
 };
 
+const saveGameResult = async () => {
+  const playerName = localStorage.getItem('playerName');
+  const time = parseInt(timer.innerHTML);
+  const theme = localStorage.getItem('theme') || 'naruto';
+  const difficulty = totalPairs;
+
+  if (!playerName) {
+    alert('Nome do jogador não encontrado! Por favor, volte à tela inicial.');
+    window.location.href = '/';
+    return;
+  }
+
+  const data = {
+    playerName,
+    theme,
+    score,
+    time,
+    difficulty
+  };
+
+  console.log('Tentando salvar resultado:', data);
+
+  try {
+    const response = await fetch('/api/scores', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+
+    const responseText = await response.text();
+    console.log('Resposta do servidor:', response.status, responseText);
+
+    if (!response.ok) {
+      throw new Error(`Failed to save score: ${response.status} ${responseText}`);
+    }
+
+    const result = JSON.parse(responseText);
+    console.log('Score saved successfully:', result);
+    alert(`Pontuação salva com sucesso!\nJogador: ${playerName}\nTema: ${theme}\nPontuação: ${score}\nTempo: ${time} segundos`);
+  } catch (error) {
+    console.error('Error saving score:', error);
+    alert('Erro ao salvar a pontuação. Por favor, tente novamente.');
+  }
+};
+
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
   if (disabledCards.length === totalPairs * 2) {
     clearInterval(this.loop);
-    alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML} segundos. Sua pontuação final foi: ${score} pontos.`);
+    saveGameResult().then(() => {
+      alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de: ${timer.innerHTML} segundos. Sua pontuação final foi: ${score} pontos.`);
+    });
   }
 };
 
@@ -50,7 +99,7 @@ const checkCards = () => {
   if (firstCharacter === secondCharacter) {
     firstCard.classList.add('disabled-card');
     secondCard.classList.add('disabled-card');
-    updateScore(10); // Adiciona 10 pontos ao acertar um par
+    updateScore(10); 
 
     firstCard = null;
     secondCard = null;
@@ -60,7 +109,7 @@ const checkCards = () => {
     setTimeout(() => {
       firstCard.classList.remove('reveal-card');
       secondCard.classList.remove('reveal-card');
-      updateScore(-1); // Deduz 1 ponto ao errar
+      updateScore(-1); 
 
       firstCard = null;
       secondCard = null;
@@ -76,7 +125,7 @@ const revealCard = ({ target }) => {
   } else if (!secondCard) {
     target.parentNode.classList.add('reveal-card');
     secondCard = target.parentNode;
-    setTimeout(checkCards, 500); // Chamando checkCards com um pequeno atraso para permitir visualização
+    setTimeout(checkCards, 500); 
   }
 };
 
@@ -85,7 +134,7 @@ const createCard = (character) => {
   const front = createElement('div', 'face front');
   const back = createElement('div', 'face back');
 
-  front.style.backgroundImage = `url('/assets/images/ricky/${character}.png')`;
+  front.style.backgroundImage = `url('/assets/images/naruto/${character}.png')`;
 
   card.appendChild(front);
   card.appendChild(back);
@@ -117,8 +166,14 @@ const startTimer = () => {
 };
 
 window.onload = () => {
-  spanPlayer.innerHTML = localStorage.getItem('player');
+  const playerName = localStorage.getItem('playerName');
+  if (!playerName) {
+    alert('Nome do jogador não encontrado! Por favor, faça login novamente.');
+    window.location.href = '/';
+    return;
+  }
+  spanPlayer.innerHTML = playerName;
   startTimer();
   loadGame();
-  updateScore(0); // Exibir pontuação inicial
+  updateScore(0); 
 };

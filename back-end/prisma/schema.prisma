@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model GameScore {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  playerName String
+  score     Int
+  time      Int      // tempo em segundos
+  theme     String   // "rickmorty" ou "naruto"
+  difficulty Int     // 6, 10 ou 15 pares
+  createdAt DateTime @default(now())
+  
+  @@map("game_scores")
+}

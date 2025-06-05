@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Memória - Rick & Morty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/game.css">
+</head>
+
+<body>
+  <div class="game-container">
+    <header>
+      <div class="game-info">
+        <div class="player-info">
+          <span>Jogador: </span>
+          <span id="player-name"></span>
+        </div>
+        <div class="timer">
+          <span>Tempo: </span>
+          <span id="timer">00:00</span>
+        </div>
+        <div class="moves">
+          <span>Movimentos: </span>
+          <span id="moves">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div id="game-board" class="game-board"></div>
+
+    <div class="game-controls">
+      <button id="restart-btn" class="control-btn">🔄 Reiniciar</button>
+      <a href="/" class="control-btn">🏠 Menu</a>
+      <a href="/ranking" class="control-btn">🏆 Ranking</a>
+    </div>
+  </div>
+
+  <div id="game-over" class="game-over hidden">
+    <div class="game-over-content">
+      <h2>🎉 Parabéns! ��</h2>
+      <p>Você completou o jogo!</p>
+      <div class="score-info">
+        <p>Tempo: <span id="final-time">00:00</span></p>
+        <p>Movimentos: <span id="final-moves">0</span></p>
+        <p>Pontuação: <span id="final-score">0</span></p>
+      </div>
+      <div class="game-over-buttons">
+        <button id="play-again" class="game-over-btn">🎮 Jogar Novamente</button>
+        <a href="/" class="game-over-btn">🏠 Menu Principal</a>
+        <a href="/ranking" class="game-over-btn">🏆 Ver Ranking</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/game.js"></script>
+</body>
+
+</html>

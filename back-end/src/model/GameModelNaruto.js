@@ -1,3 +1,4 @@
+
 class GameModelNaruto {
   constructor() {
     this.characters = [
@@ -5,11 +6,15 @@ class GameModelNaruto {
       'madara', 'itachi', 'shikamaru', 'minato', 'orochimaru'
     ];
 
-    this.difficulty = 10;
-    this.score = 0;
-    this.cards = [];
+    this.difficulty = 10; 
+    this.score = 0;      
+    this.cards = [];     
   }
 
+  /**
+   * 
+   * @param {number} difficulty - 
+   */
   initializeGame(difficulty) {
     this.difficulty = difficulty;
     const selectedCharacters = this.characters.sort(() => Math.random() - 0.5).slice(0, difficulty);
@@ -17,17 +22,29 @@ class GameModelNaruto {
     this.score = 0;
   }
 
+  /**
+   *
+   * @param {number} points - 
+   */
   updateScore(points) {
     this.score += points;
   }
 
+  /**
+   * 
+   * @returns {number} 
+   */
   getScore() {
     return this.score;
   }
 
+  /**
+   * 
+   * @returns {string[]} 
+   */
   getCards() {
     return this.cards;
   }
 }
 
-export default GameModelNaruto;
+export default GameModelNaruto; 

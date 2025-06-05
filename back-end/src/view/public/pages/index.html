@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1 class="game-title">🎮 JOGO DA MEMÓRIA</h1>
+            
+            <div class="theme-selection">
+                <h2>Escolha seu Tema:</h2>
+                <div class="theme-buttons">
+                    <button class="theme-btn rick-morty" data-theme="rickmorty">
+                        <div class="theme-icon">🛸</div>
+                        <div class="theme-name">Rick & Morty</div>
+                    </button>
+                    <button class="theme-btn naruto" data-theme="naruto">
+                        <div class="theme-icon">🍥</div>
+                        <div class="theme-name">Naruto</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="difficulty-selection">
+                <h2>Escolha a Dificuldade:</h2>
+                <div class="select-wrapper">
+                    <select id="difficultySelect" class="difficulty-select">
+                        <option value="" disabled selected>Dificuldade</option>
+                        <option value="6">Fácil (6 pares)</option>
+                        <option value="10">Médio (10 pares)</option>
+                        <option value="15">Difícil (15 pares)</option>
+                    </select>
+                    <div class="select-arrow">▼</div>
+                </div>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <label for="playerName">Digite seu nome:</label>
+                    <input 
+                        type="text" 
+                        id="playerName" 
+                        name="playerName" 
+                        placeholder="Seu nome aqui..."
+                        maxlength="20"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="play-button" id="playButton" disabled>
+                    🎯 COMEÇAR JOGO
+                </button>
+            </form>
+
+            
+            <div class="ranking-section">
+                <a href="/ranking" class="ranking-button">
+                    🏆 VER RANKING
+                </a>
+            </div>
+
+            <div class="game-info">
+                <p>🧠 Teste sua memória!</p>
+                <p>⚡ Encontre todos os pares</p>
+                <p>🏁 No menor tempo possível</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/login.js"></script>
+</body>
+</html>
