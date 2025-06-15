@@ -28,6 +28,11 @@ const characters = [
   'summer',
   'meeseeks',
   'scroopy',
+  'summer1',
+  'jerry1',
+  'morty1',
+  'rick1',
+  'rick-morty'
 ];
 
 const createElement = (tag, className) => {
@@ -40,7 +45,7 @@ const saveGameResult = async () => {
   const playerName = localStorage.getItem('playerName');
   const [minutes, seconds] = timerSpan.textContent.split(':').map(Number);
   const time = minutes * 60 + seconds;
-  const theme = 'rickmorty';
+  const theme = 'Rickmorty';
   const difficulty = totalPairs;
 
   if (!playerName) {

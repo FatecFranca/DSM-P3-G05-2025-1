@@ -3,7 +3,8 @@ class GameModelNaruto {
   constructor() {
     this.characters = [
       'naruto', 'sasuke', 'sakura', 'kakashi', 'pain',
-      'madara', 'itachi', 'shikamaru', 'minato', 'orochimaru'
+      'madara', 'itachi', 'shikamaru', 'minato', 'orochimaru',
+      'obito', 'kiba', 'hinata', 'jiraya', 'bee'
     ];
 
     this.difficulty = 10; 

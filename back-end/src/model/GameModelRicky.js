@@ -3,7 +3,8 @@ class GameModelRicky {
   constructor() {
     this.characters = [
       'beth', 'jerry', 'jessica', 'morty', 'pessoa-passaro',
-      'pickle-rick', 'rick', 'summer', 'meeseeks', 'scroopy'
+      'pickle-rick', 'rick', 'summer', 'meeseeks', 'scroopy',
+      'rick1', 'morty1', 'summer1', 'jerry1', 'rick-morty'
     ];
     this.difficulty = 10; 
     this.score = 0;      

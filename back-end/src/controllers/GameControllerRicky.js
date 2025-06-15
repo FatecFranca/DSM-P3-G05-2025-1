@@ -11,10 +11,11 @@ class GameControllerRicky {
     this.gameStartTime = null;
     this.gameCompleted = false;
     this.playerName = localStorage.getItem('player') || 'Jogador';
-    this.difficulty = parseInt(localStorage.getItem('difficulty')) || 10;
+    this.difficulty = parseInt(localStorage.getItem('difficulty')) || 15;
   }
 
   startGame(difficulty) {
+    this.difficulty = difficulty || this.difficulty;
     this.gameStartTime = Date.now();
     this.model.initializeGame(difficulty);
     this.view.renderGameBoard(this.model.getCards());

@@ -18,7 +18,6 @@ const updateMoves = () => {
 };
 
 const characters = [
-  'gaara',
   'hinata',
   'itachi',
   'kakashi',
@@ -30,9 +29,10 @@ const characters = [
   'sasuke',
   'sakura',
   'shikamaru',
-  'tsunade',
   'jiraya',
-  'orochimaru'
+  'orochimaru',
+  'kiba',
+  'bee'
 ];
 
 const createElement = (tag, className) => {
