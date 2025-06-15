@@ -45,7 +45,7 @@ const saveGameResult = async () => {
   const playerName = localStorage.getItem('playerName');
   const [minutes, seconds] = timerSpan.textContent.split(':').map(Number);
   const time = minutes * 60 + seconds;
-  const theme = 'Rickmorty';
+  const theme = 'rickandmorty';
   const difficulty = totalPairs;
 
   if (!playerName) {

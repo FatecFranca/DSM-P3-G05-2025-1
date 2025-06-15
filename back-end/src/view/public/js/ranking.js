@@ -102,8 +102,8 @@ class RankingManager {
     if (this.currentTheme !== 'all') {
       filtered = filtered.filter(score => {
         console.log('Comparando tema:', score.theme, 'com', this.currentTheme);
-        return score.theme === this.currentTheme;
-      });
+        return score.theme?.toLowerCase().trim() === this.currentTheme.toLowerCase().trim();
+            });
     }
 
     
@@ -146,6 +146,8 @@ class RankingManager {
   getThemeDisplay(theme) {
     switch (theme) {
       case 'rickandmorty':
+      case 'rickmorty':
+      case 'Rickmorty':
         return '🛸 Rick & Morty';
       case 'naruto':
         return '🍥 Naruto';
@@ -157,7 +159,7 @@ class RankingManager {
   getDifficultyDisplay(difficulty) {
     const difficultyNum = parseInt(difficulty);
     switch (difficultyNum) {
-      case 6:
+      case 5:
         return 'Fácil';
       case 10:
         return 'Médio';

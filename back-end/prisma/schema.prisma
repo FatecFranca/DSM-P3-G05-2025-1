@@ -19,7 +19,7 @@ model GameScore {
   score     Int
   time      Int      // tempo em segundos
   theme     String   // "rickmorty" ou "naruto"
-  difficulty Int     // 6, 10 ou 15 pares
+  difficulty Int     // 5, 10 ou 15 pares
   createdAt DateTime @default(now())
   
   @@map("game_scores")
