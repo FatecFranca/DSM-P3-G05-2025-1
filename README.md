@@ -12,6 +12,11 @@ https://www.youtube.com/watch?v=FJEBj00EhUE
 
 ---
 
+## 🖼️ Portifólio 🖼️
+https://www.canva.com/design/DAGpyCijLlk/2FbSLc6CaPaeVRqeeXOMLw/edit
+
+---
+
 ## 🚀 Funcionalidades 🚀
 
 - Combinação de cartas com personagens de series famosos ()
