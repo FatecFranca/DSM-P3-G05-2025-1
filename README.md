@@ -55,8 +55,8 @@ https://www.youtube.com/watch?v=FJEBj00EhUE
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/jogo-da-memoria.git](https://github.com/FatecFranca/DSM-P3-G05-2025-1.git
-cd jogo-da-memoria
+git clone https://github.com/FatecFranca/DSM-P3-G05-2025-1.git
+cd DSM-P3-G05-2025-1
 
 # Instale as dependências 
 npm install
