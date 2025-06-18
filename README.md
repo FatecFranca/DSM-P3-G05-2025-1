@@ -1,3 +1,6 @@
+# DSM-P3-G05-2025-1
+Repositório do GRUPO 05 do Projeto Interdisciplinar do 3º semestre DSM 2025/1. Alunos: Claudio de Melo Junior, Diogo Guimarães Ramos, João Vitor Nicolau dos Santos, Thiago Davanzo Pereira.
+
 # 🧠 Jogo da Memória 🧠
 
 Um jogo da memória interativo feito com **HTML**, **CSS** e **JavaScript**, com **MongoDB** usado para armazenar pontuações e estatísticas dos jogadores. O objetivo é desafiar a memória do usuário combinando pares de cartas.
